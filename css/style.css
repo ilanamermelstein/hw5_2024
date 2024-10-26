@@ -1,0 +1,178 @@
+/* step 1 */
+#logo{
+    animation-name: logomove;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+}
+@keyframes logomove {
+    0% {width: 25px; opacity: 0;}
+    100% {width: 475px; opacity: 1;}
+}
+
+/* step 2 */
+body{
+    font-family: "Poppins", serif;
+    background: url("/images/concrete_seamless.png"), #f1f1f1;
+}
+
+/* step 3 */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* step 4 */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* step 5 */
+a:visited{
+    color: initial
+}
+
+/* step 6 */
+.card > header{
+    background: #288088;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #45ADAD;
+    padding: 20px 0;
+}
+.card > header, .card{
+    border-radius: 50px 50px 0 0;
+}
+
+/* step 7 */
+.card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-basis: 450px; /* sets initial height to 450px */
+    width: 450px; /* sets width to 450px so all are the same */
+}
+
+/* step 8 */
+.pricing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* centers text along horizontal axis because column */
+}
+
+/* step 9 */
+.gallery img{
+    border-style: solid;
+    border-color: #50C7C7;
+    border-width: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+/* step 10 */
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* not all on one row, wraps in response to viewport size */
+    justify-content: center; /* centers container on horizontal axis */
+    align-items: stretch; /* makes logos stretch to same height as "cool" images */
+}
+
+@media screen and (min-width: 900px){
+    /* step 11 */
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; /* makes it so that logo on far left and links on far right */
+    }
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* step 12 */
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        justify-content: center
+    }
+    .card{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 275px; /* sets initial height to 275px but can grow as needed */
+        width: 275px /* sets width to 275px so all are the same width */
+    }
+
+    /* step 13 */
+    body > header{ /* selects header that is first child of body element; excludes other headers */
+        position: sticky;
+        top: 0 /* makes header visible even after scrolling */
+    }
+
+}
+
+/* step 14 */
+@media all and (prefers-reduced-motion: reduce){
+    #logo{
+        animation-name: reducedmotion;
+        animation-duration: 0s;
+        animation-iteration-count: 1;
+    }
+    @keyframes reducedmotion {
+        0% {width: 25px; opacity: 0;}
+        100% {width: 475px; opacity: 1;}
+    }
+}
+
+@media print{
+    /* steps 15 and 16 */
+    body{
+        font-family: Arial, Helvetica;
+        background: #f1f1f1;
+    }
+
+    /* step 17 */
+    nav{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        flex-basis: 100%;
+        justify-content: space-around;
+    }
+
+    /* step 18 */
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: end /* aligns cards at bottom */
+    }
+
+    /* step 19 */
+    .card{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 325px; /* sets initial height to 325px but can grow as needed */
+        width: 275px; /* sets width to 275px so all are the same width */
+        border-style: solid;
+        border-width: 2px;
+        border-color: #45ADDD;
+    }
+
+    /* step 20 */
+    .gallery, #gallery{
+        display: none
+    }
+
+    /* step 21 */
+    .card ul > li:nth-child(2)::after{
+        content: "👍"
+    }
+
+}
